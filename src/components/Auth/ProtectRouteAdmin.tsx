@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 import gif from "@/assets/loading.gif";
 import { useAuthStore } from "./AuthState";
@@ -8,7 +8,11 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectRouteAdmin({ children }: ProtectedRouteProps) {
-  const { userRol, isLoading } = useAuthStore();
+  const {
+    // userRol,
+
+    isLoading,
+  } = useAuthStore();
 
   if (isLoading) {
     return (
@@ -19,17 +23,17 @@ export function ProtectRouteAdmin({ children }: ProtectedRouteProps) {
     );
   }
 
-  if (!userRol) {
-    return <Navigate to="/login" />;
-  }
+  // if (!userRol) {
+  //   return <Navigate to="/login" />;
+  // }
 
   // if (!["ADMIN", "SUPER_ADMIN"].includes(userRol)) {
   //   return <Navigate to="/dashboard-empleado" />;
   // }
 
-  if (userRol !== "ADMIN" && userRol !== "SUPER_ADMIN") {
-    return <Navigate to="/dashboard-empleado" />;
-  }
+  // if (userRol !== "ADMIN" && userRol !== "SUPER_ADMIN") {
+  //   return <Navigate to="/dashboard-empleado" />;
+  // }
 
   return children;
 }

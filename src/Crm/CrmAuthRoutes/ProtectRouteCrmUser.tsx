@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import gif from "@/assets/loading.gif";
 import { useAuthStoreCRM } from "./AuthStateCRM";
 
@@ -7,7 +7,10 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectRouteCrmUser({ children }: ProtectedRouteProps) {
-  const { userRol, isLoading } = useAuthStoreCRM();
+  const {
+    // userRol,
+    isLoading,
+  } = useAuthStoreCRM();
 
   if (isLoading) {
     return (
@@ -18,13 +21,13 @@ export function ProtectRouteCrmUser({ children }: ProtectedRouteProps) {
     );
   }
 
-  if (!userRol) {
-    return <Navigate to="/crm/login" />;
-  }
+  // if (!userRol) {
+  //   return <Navigate to="/crm/login" />;
+  // }
 
-  if (!["ADMIN", "TECNICO", "SUPER_ADMIN", "COBRADOR"].includes(userRol)) {
-    return <Navigate to="/crm" />;
-  }
+  // if (!["ADMIN", "TECNICO", "SUPER_ADMIN", "COBRADOR"].includes(userRol)) {
+  //   return <Navigate to="/crm" />;
+  // }
 
   return children;
 }

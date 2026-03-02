@@ -1,11 +1,13 @@
-import { useStoreCrm } from "../ZustandCrm/ZustandCrmContext";
-import NewDashboard from "./admin-dashboard";
-import TecDashboard from "./tec-dashboard";
+import WhatsappChats from "../CrmWhatsapp/page";
+// import { useStoreCrm } from "../ZustandCrm/ZustandCrmContext";
+// import NewDashboard from "./admin-dashboard";
+// import TecDashboard from "./tec-dashboard";
 
 export function MainDashboardPage() {
-  const userRol = useStoreCrm((state) => state.rol);
+  // const userRol = useStoreCrm((state) => state.rol);
 
-  const isAdmin = userRol === "ADMIN" || userRol === "SUPER_ADMIN";
+  // const isAdmin = userRol === "ADMIN" || userRol === "SUPER_ADMIN";
 
-  return isAdmin ? <NewDashboard /> : <TecDashboard />;
+  // return isAdmin ? <WhatsappChats /> : <TecDashboard />;
+  return <WhatsappChats />;
 }

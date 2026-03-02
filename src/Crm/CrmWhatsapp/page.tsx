@@ -23,7 +23,7 @@ export default function WhatsappChats() {
       skip,
       nombre: nombre.trim() ? nombre.trim() : undefined,
     }),
-    [take, skip, nombre]
+    [take, skip, nombre],
   );
 
   const q = useGetClientes(params);
@@ -40,7 +40,7 @@ export default function WhatsappChats() {
   };
 
   const updateParams = (
-    newParams: Record<string, string | number | undefined>
+    newParams: Record<string, string | number | undefined>,
   ) => {
     const nextParams = new URLSearchParams(searchParams);
 
@@ -55,10 +55,11 @@ export default function WhatsappChats() {
     setSearchParams(nextParams);
   };
   console.log("clientes: ", rows);
+  console.log("La respuesta del servidor: ", q);
 
   return (
     <PageTransitionCrm
-      titleHeader="Nuvia - Mensajería"
+      titleHeader="Asistente - Mensajería"
       subtitle={`${meta.total} Chats`}
       variant="fade-pure"
     >
